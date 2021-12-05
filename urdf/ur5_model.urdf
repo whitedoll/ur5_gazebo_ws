@@ -1,0 +1,497 @@
+<?xml version="1.0" ?>
+<robot name="ur5">
+
+  <link name="world"/>
+
+  <joint name="fixed" type="fixed">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
+
+  <link name="base_link">
+    <visual name="base_link_visual">
+      <geometry>
+        <mesh>
+          <uri>meshes/ur5/visual/base.dae</uri>
+        </mesh>
+      </geometry>
+    </visual>
+    <collision name="base_link_collision">
+      <geometry>
+        <mesh>
+            <uri>meshes/ur5/collision/base.stl</uri>
+        </mesh>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1.2</mu>
+            <mu2>1.2</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <pose>-7.83914e-07 0.00442178 0.184343 0 0 0</pose>
+      <mass>4.210389694173812</mass>
+      <inertia>
+        <ixx>0.09309670560602573</ixx>
+        <iyy>0.09257037651287492</iyy>
+        <izz>0.004310645613985299</izz>
+        <ixy>5.711270872759674e-09</ixy>
+        <ixz>2.0039833861772347e-07</ixz>
+        <iyz>0.0047053532779924665</iyz>
+      </inertia>
+    </inertial>
+  </link>
+
+  <link name="shoulder_link">
+    <pose relative_to="shoulder_pan_joint">0 0 0 0 0 0</pose>
+    <visual name="shoulder_link_visual">
+        <geometry>
+            <mesh>
+                <uri>meshes/ur5/visual/shoulder.dae</uri>
+            </mesh>
+        </geometry>
+    </visual>
+    <collision name="shoulder_link_collision">
+        <geometry>
+            <mesh>
+                <uri>meshes/ur5/collision/shoulder.stl</uri>
+            </mesh>
+        </geometry>
+        <surface>
+            <friction>
+                <ode>
+                    <mu>1.2</mu>
+                    <mu2>1.2</mu2>
+                </ode>
+            </friction>
+        </surface>
+    </collision>
+    <inertial>
+        <pose>-3.81853e-06 0.00927291 -0.0018563 0 0 0</pose>
+        <mass>2.6078628081050645</mass>
+        <inertia>
+            <ixx>0.00615890739477387</ixx>
+            <iyy>0.005562932983198189</iyy>
+            <izz>0.005255082470414319</izz>
+            <ixy>8.486678716437087e-07</ixy>
+            <ixz>1.436028981488676e-07</ixz>
+            <iyz>-0.00018809980689883695</iyz>
+        </inertia>
+    </inertial>
+  </link>
+
+  <link name="upper_arm_link">
+      <pose relative_to="shoulder_lift_joint">0 0 0 0 0 0</pose>
+      <visual name="upper_arm_link_visual">
+          <geometry>
+              <mesh>
+                  <uri>meshes/ur5/visual/upperarm.dae</uri>
+              </mesh>
+          </geometry>
+      </visual>
+      <collision name="upper_arm_link_collision">
+          <geometry>
+              <mesh>
+                  <uri>meshes/ur5/collision/upperarm.stl</uri>
+              </mesh>
+          </geometry>
+          <surface>
+              <friction>
+                  <ode>
+                      <mu>1.2</mu>
+                      <mu2>1.2</mu2>
+                  </ode>
+              </friction>
+          </surface>
+      </collision>
+      <inertial>
+          <pose>9.68139e-10 -0.00107158 0.2125 0 0 0</pose>
+          <mass>9.034556202946057</mass>
+          <inertia>
+              <ixx>0.2566537454248199</ixx>
+              <iyy>0.25483850258961777</iyy>
+              <izz>0.016022276702360172</izz>
+              <ixy>-2.2173460061911962e-09</ixy>
+              <ixz>2.3397723734924104e-06</ixz>
+              <iyz>5.701897149736449e-09</iyz>
+          </inertia>
+      </inertial>
+  </link>
+
+  <link name="forearm_link">
+      <pose relative_to="elbow_joint">0 0 0 0 0 0</pose>
+      <visual name="forearm_link_visual">
+          <geometry>
+              <mesh>
+                  <uri>meshes/ur5/visual/forearm.dae</uri>
+              </mesh>
+          </geometry>
+      </visual>
+      <collision name="forearm_link_collision">
+          <geometry>
+              <mesh>
+                  <uri>meshes/ur5/collision/forearm.stl</uri>
+              </mesh>
+          </geometry>
+          <surface>
+              <friction>
+                  <ode>
+                      <mu>1.2</mu>
+                      <mu2>1.2</mu2>
+                  </ode>
+              </friction>
+          </surface>
+      </collision>
+      <inertial>
+          <pose>-7.83914e-07 0.00442178 0.184343 0 0 0</pose>
+          <mass>4.210389694173812</mass>
+          <inertia>
+              <ixx>0.09309670560602573</ixx>
+              <iyy>0.09257037651287492</iyy>
+              <izz>0.004310645613985299</izz>
+              <ixy>5.711270872759674e-09</ixy>
+              <ixz>2.0039833861772347e-07</ixz>
+              <iyz>0.0047053532779924665</iyz>
+          </inertia>
+      </inertial>
+  </link>
+
+  <link name="wrist_1_link">
+      <pose relative_to="wrist_1_joint">0 0 0 0 0 0</pose>
+      <visual name="wrist_1_link_visual">
+          <geometry>
+              <mesh>
+                  <uri>meshes/ur5/visual/wrist1.dae</uri>
+              </mesh>
+          </geometry>
+      </visual>
+      <collision name="wrist_1_link_collision">
+          <geometry>
+              <mesh>
+                  <uri>meshes/ur5/collision/wrist1.stl</uri>
+              </mesh>
+          </geometry>
+          <surface>
+              <friction>
+                  <ode>
+                      <mu>1.2</mu>
+                      <mu2>1.2</mu2>
+                  </ode>
+              </friction>
+          </surface>
+      </collision>
+      <inertial>
+          <pose>2.12195e-06 0.0886236 -0.00357675 0 0 0</pose>
+          <mass>0.8652783044597422</mass>
+          <inertia>
+              <ixx>0.0011006744464830784</ixx>
+              <iyy>0.0010246557119841899</iyy>
+              <izz>0.0007125213984803068</izz>
+              <ixy>-4.062057055066431e-08</ixy>
+              <ixz>-2.441133081746347e-08</ixz>
+              <iyz>1.000924524333879e-05</iyz>
+          </inertia>
+      </inertial>
+  </link>
+
+  <link name="wrist_2_link">
+      <pose relative_to="wrist_2_joint">0 0 0 0 0 0</pose>
+      <visual name="wrist_2_link_visual">
+          <geometry>
+              <mesh>
+                  <uri>meshes/ur5/visual/wrist2.dae</uri>
+              </mesh>
+          </geometry>
+      </visual>
+      <collision name="wrist_2_link_collision">
+          <geometry>
+              <mesh>
+                  <uri>meshes/ur5/collision/wrist2.stl</uri>
+              </mesh>
+          </geometry>
+          <surface>
+              <friction>
+                  <ode>
+                      <mu>1.2</mu>
+                      <mu2>1.2</mu2>
+                  </ode>
+              </friction>
+          </surface>
+      </collision>
+      <inertial>
+          <pose>-2.12306e-06 -0.00357678 0.0901045 0 0 0</pose>
+          <mass>0.8652786866955592</mass>
+          <inertia>
+              <ixx>0.0010980920821000012</ixx>
+              <iyy>0.0007099378137563144</iyy>
+              <izz>0.0010246570857519936</izz>
+              <ixy>2.436032506659575e-08</ixy>
+              <ixz>4.047086050601145e-08</ixz>
+              <iyz>4.96085194908414e-06</iyz>
+          </inertia>
+      </inertial>
+  </link>
+
+  <link name="wrist_3_link">
+      <pose relative_to="wrist_3_joint">0 0 0 0 0 0</pose>
+      <visual name="wrist_3_link_visual">
+          <geometry>
+              <mesh>
+                  <uri>meshes/ur5/visual/wrist3.dae</uri>
+              </mesh>
+          </geometry>
+      </visual>
+      <collision name="wrist_3_link_collision">
+          <geometry>
+              <mesh>
+                  <uri>meshes/ur5/collision/wrist3.stl</uri>
+              </mesh>
+          </geometry>
+          <surface>
+              <friction>
+                  <ode>
+                      <mu>1.2</mu>
+                      <mu2>1.2</mu2>
+                  </ode>
+              </friction>
+          </surface>
+      </collision>
+      <inertial>
+          <pose>8.12548e-09 0.0630914 0.000189932 0 0 0</pose>
+          <mass>0.23285976783205536</mass>
+          <inertia>
+              <ixx>0.00010068520800989181</ixx>
+              <iyy>0.00016016377462915846</iyy>
+              <izz>9.951199288758246e-05</izz>
+              <ixy>-1.3195380569038253e-11</ixy>
+              <ixz>2.0466677535340047e-11</ixz>
+              <iyz>3.421454203362164e-08</iyz>
+          </inertia>
+      </inertial>
+  </link>
+
+  <!-- Arm Joints -->
+  <joint name="shoulder_pan_joint" type="revolute">
+      <pose relative_to="base_link">0 0 0.089159 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>shoulder_link</child>
+      <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+              <effort>150</effort>
+              <lower>-6.28319</lower>
+              <upper>6.28319</upper>
+              <velocity>3.15</velocity>
+          </limit>
+          <dynamics>
+              <spring_reference>0</spring_reference>
+              <spring_stiffness>0</spring_stiffness>
+              <damping>30</damping>
+              <friction>4</friction>
+          </dynamics>
+      </axis>
+  </joint>
+
+  <joint name="shoulder_lift_joint" type="revolute">
+      <pose relative_to="shoulder_link">0 0.13585 0 0 0 0</pose>
+      <parent>shoulder_link</parent>
+      <child>upper_arm_link</child>
+      <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+              <effort>150</effort>
+              <lower>-6.28319</lower>
+              <upper>6.28319</upper>
+              <velocity>3.15</velocity>
+          </limit>
+          <dynamics>
+              <spring_reference>0</spring_reference>
+              <spring_stiffness>0</spring_stiffness>
+              <damping>45</damping>
+              <friction>6</friction>
+          </dynamics>
+      </axis>
+  </joint>
+
+  <joint name="elbow_joint" type="revolute">
+      <pose relative_to="upper_arm_link">0 -0.1197 0.425 0 0 0</pose>
+      <parent>upper_arm_link</parent>
+      <child>forearm_link</child>
+      <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+              <effort>150</effort>
+              <lower>-6.28319</lower>
+              <upper>6.28319</upper>
+              <velocity>3.15</velocity>
+          </limit>
+          <dynamics>
+              <spring_reference>0</spring_reference>
+              <spring_stiffness>0</spring_stiffness>
+              <damping>35</damping>
+              <friction>5</friction>
+          </dynamics>
+      </axis>
+  </joint>
+
+  <joint name="wrist_1_joint" type="revolute">
+      <pose relative_to="forearm_link">0 0 0.39225 0 0 0</pose>
+      <parent>forearm_link</parent>
+      <child>wrist_1_link</child>
+      <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+              <effort>28</effort>
+              <lower>-6.28319</lower>
+              <upper>6.28319</upper>
+              <velocity>3.2</velocity>
+          </limit>
+          <dynamics>
+              <spring_reference>0</spring_reference>
+              <spring_stiffness>0</spring_stiffness>
+              <damping>25</damping>
+              <friction>3.5</friction>
+          </dynamics>
+      </axis>
+  </joint>
+
+  <joint name="wrist_2_joint" type="revolute">
+      <pose relative_to="wrist_1_link">0 0.093 0 0 0 0</pose>
+      <parent>wrist_1_link</parent>
+      <child>wrist_2_link</child>
+      <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+              <effort>28</effort>
+              <lower>-6.28319</lower>
+              <upper>6.28319</upper>
+              <velocity>3.2</velocity>
+          </limit>
+          <dynamics>
+              <spring_reference>0</spring_reference>
+              <spring_stiffness>0</spring_stiffness>
+              <damping>20</damping>
+              <friction>2.5</friction>
+          </dynamics>
+      </axis>
+  </joint>
+
+  <joint name="wrist_3_joint" type="revolute">
+      <pose relative_to="wrist_2_link">0 0 0.09465 0 0 0</pose>
+      <parent>wrist_2_link</parent>
+      <child>wrist_3_link</child>
+      <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+              <effort>28</effort>
+              <lower>-6.28319</lower>
+              <upper>6.28319</upper>
+              <velocity>3.2</velocity>
+          </limit>
+          <dynamics>
+              <spring_reference>0</spring_reference>
+              <spring_stiffness>0</spring_stiffness>
+              <damping>15</damping>
+              <friction>1.75</friction>
+          </dynamics>
+      </axis>
+  </joint>
+
+  <!-- End-effector -->
+  <link name="tool0">
+      <pose relative_to="end_effector_frame_fixed_joint">0 0 0 0 0 0</pose>
+  </link>
+  <joint name="end_effector_frame_fixed_joint" type="fixed">
+      <pose relative_to="wrist_3_link">0 0.275 0 -1.570796325 0 0</pose>
+      <parent>wrist_3_link</parent>
+      <child>tool0</child>
+  </joint>
+
+  <ros2_control name="GazeboSystem" type="system">
+    <hardware>
+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
+    <joint name="shoulder_pan_joint">
+      <command_interface name="position">
+        <param name="min">-3.14</param>
+        <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="shoulder_lift_joint">
+      <command_interface name="position">
+        <param name="min">-3.14</param>
+        <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="elbow_joint">
+      <command_interface name="position">
+        <param name="min">-3.14</param>
+        <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="wrist_1_joint">
+      <command_interface name="position">
+        <param name="min">-3.14</param>
+        <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="wrist_2_joint">
+      <command_interface name="position">
+        <param name="min">-3.14</param>
+        <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="wrist_3_joint">
+      <command_interface name="position">
+        <param name="min">-3.14</param>
+        <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+  </ros2_control>
+  
+  <gazebo>
+    <plugin name="ros2_control" filename="libgazebo_ros2_control.so">
+      <!--robotNamespace>/</robotNamespace-->
+      <robotSimType>gazebo_ros2_control/DefaultRobotHWSim</robotSimType>
+      <parameters>$(find ur5_gazebo)/config/cart_controller.yaml</parameters>
+    </plugin>
+
+<!--
+    <plugin name="gazebo_ros_power_monitor_controller" filename="libgazebo_ros_power_monitor.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>1.0</updateRate>
+      <timeout>5</timeout>
+      <powerStateTopic>power_state</powerStateTopic>
+      <powerStateRate>10.0</powerStateRate>
+      <fullChargeCapacity>87.78</fullChargeCapacity>     
+      <dischargeRate>-474</dischargeRate>
+      <chargeRate>525</chargeRate>
+      <dischargeVoltage>15.52</dischargeVoltage>
+      <chargeVoltage>16.41</chargeVoltage>
+    </plugin>
+-->
+  </gazebo>
+
+</robot>
